@@ -20,6 +20,7 @@
                 <tr>
                     <th scope="col">ID</th>
                     <th scope="col">Название</th>
+                    <th scope="col">Автор</th>
                     <th scope="col">Дата создания</th>
                 </tr>
                 </thead>
@@ -27,7 +28,8 @@
                 {% for snippet in snippets %}
                 <tr>
                     <td scope="row">{{ snippet.id }}</td>
-                    <td><a href="...">{{ snippet.name }}</a></td>
+                    <td><a href="{% url 'snippet_detail' snippet.id %}">{{ snippet.name }}</a></td>
+                    <td>{{ snippet.user }}</td>
                     <td>{{ snippet.creation_date }}</td>
                 </tr>
                 {% endfor %}
