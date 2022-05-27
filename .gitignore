@@ -1,5 +1,6 @@
 .idea/
 *venv/
 tmp/
+staticfiles/
 *.pyc
 db.*
