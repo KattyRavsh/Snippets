@@ -31,6 +31,24 @@
             </div>
         </fieldset>
     </div>
+    <div class="row">
+        <div class="col">
+            <ul>
+                {% for comment in snippet.comments.all %}
+                    <li>{{ comment.text }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <form action="{% url 'comment-add' %}" method="post">{% csrf_token %}
+                {{ form.text }}<br>
+                <input name="snippet_id" type="hidden" value="{{ snippet.id }}">
+                <button type="submit">Комментировать</button>
+            </form>
+        </div>
+    </div>
 </div>
 
 {% endblock %}
